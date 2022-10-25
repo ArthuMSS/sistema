@@ -1,0 +1,15 @@
+.jak{
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    margin: 0%;
+
+    height: 100vh;
+
+    .jas{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}

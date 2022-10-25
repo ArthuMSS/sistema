@@ -11,7 +11,7 @@ export default function Home(){
     }
 
     return(
-        <main>
+        <main className='nmz'>
             <section className='bn1'>
 
             <h1 className='hj1'>
