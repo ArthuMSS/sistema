@@ -17,7 +17,7 @@ export default function SistemaEscola(){
         navigate('/')
     }
 
-    function Sistema(){
+    function calcAluno(){
         
     }
 
