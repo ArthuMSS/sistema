@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import { contarArray, Maior, Media, Menor } from '../../services/funcoes';
 
