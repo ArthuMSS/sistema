@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss'
 import { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
-import Contar from '../../services/contarAluno.js';
+import { contarArray, Maior, Media, Menor } from '../../services/funcoes';
 
 export default function SistemaEscola(){
     const[qtdalunos, setQtdAlunos] = useState(0);
@@ -18,7 +18,23 @@ export default function SistemaEscola(){
     }
 
     function calcAluno(){
-        
+        const a = contarArray(qtdalunos);
+        setAlunos(a);
+    }
+
+    function altAluno(pos, novoValor){
+        alunos[pos] = novoValor;
+        setAlunos([...alunos]);
+    }
+
+    function calc(){
+        const a = Media(alunos);
+        const b = Maior(alunos);
+        const c = Menor(alunos);
+
+        setMedia(a);
+        setMaiorNota(b);
+        setMenorNota(c);
     }
 
     return(
@@ -27,8 +43,31 @@ export default function SistemaEscola(){
             <section className='jas'>
 
                 <h2>Quantidade de alunos:</h2>
-                <input type="number"  placeholder='Digite a quantidade...'/>
-                <button>Calcular</button>
+                <input type="number" value={qtdalunos} onChange={e => setQtdAlunos(e.target.value)} placeholder='Digite a quantidade...'/>
+                <button onClick={calcAluno} >Confirmar</button>
+
+                {alunos.map((item, pos) =>
+                <div>
+                    <h2>Aluno {pos+1}:</h2>
+                    <input type="text" value={alunos[pos]} onChange={e => altAluno(pos, e.target.value)}/>
+                </div>
+                )}
+
+                <button onClick={calc}>Calcular</button>
+
+                <h3>
+                    Media: {media}
+                </h3>
+
+                <h3>
+                    Maior: {maiorNota}
+                </h3>
+                
+                <h3>
+                    Menor: {menorNota}
+                </h3>
+
+                <button onClick={voltarHm}>Voltar</button>
 
             </section>
 
